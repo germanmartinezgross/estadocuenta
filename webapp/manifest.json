@@ -115,6 +115,13 @@
           "target": [
             "TargetDocF"
           ]
+        },
+        {
+          "name": "RouteComp",
+          "pattern": "Comp/{tipo},{numero}",
+          "target": [
+            "TargetComp"
+          ]
         }
       ],
       "targets": {
@@ -131,6 +138,13 @@
           "clearControlAggregation": false,
           "viewId": "DocumentosFinancieros",
           "viewName": "DocumentosFinancieros"
+        },
+        "TargetComp": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Comprobantes",
+          "viewName": "Comprobantes"
         }
       }
     },

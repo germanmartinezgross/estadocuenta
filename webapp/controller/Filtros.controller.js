@@ -15,12 +15,15 @@ sap.ui.define([
                 var oModel2 = new JSONModel
                 var oModel3 = new JSONModel
                 oModel.setData({
+                    "saldo": "65.852.739,38",
                     "estados": [{
                             "operacion": "Nota de Credito",
                             "comprobante": "0063A00085422",
                             "fecha": "31/07/2023",
                             "vencimiento": "29/09/2023",
                             "importe": "-3.185.364,39",
+                            "items": "1",
+                            "descripcion":"TX-1A-B-350-1120-0000DES-FSC",
                             "moneda": "$"
                         },
                         {
@@ -29,6 +32,8 @@ sap.ui.define([
                             "fecha": "31/07/2023",
                             "vencimiento": "29/09/2023",
                             "importe": "13.934.893,57",
+                            "items": "1",
+                            "descripcion":"TX-1A-B-350-1120-0000DES-FSC",
                             "moneda": "$"
                         },
                         {
@@ -37,6 +42,8 @@ sap.ui.define([
                             "fecha": "31/07/2023",
                             "vencimiento": "29/09/2023",
                             "importe": "24.969.387,08",
+                            "items": "1",
+                            "descripcion":"TX-1A-B-350-1120-0000DES-FSC",
                             "moneda": "$"
                         },
                         {
@@ -45,6 +52,8 @@ sap.ui.define([
                             "fecha": "28/07/2023",
                             "vencimiento": "29/07/2023",
                             "importe": "-701.984,43",
+                            "items": "1",
+                            "descripcion":"TX-1A-B-350-1120-0000DES-FSC",
                             "moneda": "$"
                         },
                         {
@@ -53,7 +62,10 @@ sap.ui.define([
                             "fecha": "28/07/2023",
                             "vencimiento": "29/07/2023",
                             "importe": "3.071.094.16",
+                            "items": "1",
+                            "descripcion":"TX-1A-B-350-1120-0000DES-FSC",
                             "moneda": "$"
+                            
                         },
                     ]
                 })
@@ -92,14 +104,14 @@ sap.ui.define([
                 this.getOwnerComponent().setModel(oModel3, "Comprobantes")
 
 
-                this.getView().setModel(this.getOwnerComponent().getModel("DocumentosFinancieros"));
+                this.getView().setModel(this.getOwnerComponent().getModel("DocumentosFinancieros"),"documentosFinancieros");
             },
 
             onSubmit: async function () {
                 this.getView().byId("tablaPanel").setVisible(true);
             },
             onPress: async function (oEvent) {
-                var oBindingContext = oEvent.getSource().getBindingContext();
+                var oBindingContext = oEvent.getSource().getBindingContext("documentosFinancieros");
                 var operacion = oBindingContext.getProperty("operacion");
                 var comprobante = oBindingContext.getProperty("comprobante");
                 var fecha = oBindingContext.getProperty("fecha");

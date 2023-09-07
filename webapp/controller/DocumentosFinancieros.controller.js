@@ -51,7 +51,19 @@ sap.ui.define([
 
       },
       onPress: function (oEvent) {
-        var oBindingContext = oEvent.getSource().getBindingContext();
+        // var oBindingContext = oEvent.getSource().getBindingContext();
+        var oBindingContext = oEvent.getSource().getBindingContext("comprobantes");
+                var tipo = oBindingContext.getProperty("tipo");
+                var numero = oBindingContext.getProperty("numero");
+        this.getOwnerComponent().getRouter().navTo("RouteComp" , {
+          tipo: tipo,
+          numero: numero
+          // fecha: fecha,
+          // vencimiento: vencimiento,
+          // importe: importe,
+          // moneda: moneda
+      }
+      );
         // this.getOwnerComponent().getRouter().navTo("RouteDocF");
       }
     });
